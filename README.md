@@ -6,7 +6,7 @@ The formal analysis compares 4-, 8- and 12-week assessment schedules imposed on 
 
 ## Setup and synthetic checks
 
-Use Python 3.11 or later (the release is checked with the original project interpreter). NumPy is pinned to the original analysis version.
+Use Python 3.12 or later (the release is checked with the original project interpreter). NumPy is pinned to the original analysis version.
 
 ```bash
 python3 -m venv .venv
@@ -43,3 +43,5 @@ AC selection-weighting results are diagnostic only because the prespecified qual
 ## License and citation
 
 Original code is released under the [MIT license](LICENSE). Dataset terms remain with the DRCR/Jaeb source (see [data access](docs/DATA_ACCESS.md)). Archive creator/author is the **DME-TIR-Interval** project. Zenodo metadata are controlled by `.zenodo.json`; citation metadata are in `CITATION.cff`.
+
+The release validation record is in `provenance/release_validation.json`; all 60 regenerated final TSVs were byte-identical to the existing frozen results. GitHub Actions checks synthetic cases without downloading trial data.

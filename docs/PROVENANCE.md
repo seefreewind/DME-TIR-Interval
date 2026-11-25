@@ -15,3 +15,5 @@ The folder names `phase2_ajo` and `phase2_ajo_revision` are retained solely to p
 The four-week schedule is a denser reference, not daily visual-acuity truth. Record thinning under existing treatment paths is not an intervention on treatment management. Protocol AC fellow eyes are resampled together by participant. Post hoc extensions are labeled separately. AC selection weighting failed the prespecified qualification gate and remains diagnostic only; it must not be described as a qualified population correction.
 
 The extension audit retains original independent cluster-expansion, model, weighting and CI checks. Two private historical-manifest loops are replaced by the public runner's final digest comparison; the audit's summary reports this substitution.
+
+The public runner additionally checks NumPy/Matplotlib imports before starting a real-data run. Source tables in the synthetic fixture and public field mappings use LF line endings; their values are unchanged.

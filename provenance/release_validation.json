@@ -1,0 +1,31 @@
+{
+  "analysis_python": "3.14.8",
+  "analysis_numpy": "2.5.5",
+  "synthetic_checks_passed": 26,
+  "synthetic_cli_checks_passed": 8,
+  "verified_zip_members": 113,
+  "frozen_input_files_identical": 20,
+  "formal_numeric_checks": 94,
+  "tail_identities": 1116,
+  "independent_real_integrations": 1674,
+  "max_integration_error_days": 5.684341886080802e-14,
+  "literal_formal_bootstrap_checks": 18,
+  "extension_numeric_checks": 1753,
+  "independent_extension_checks": 68,
+  "generated_final_tables_identical": 60,
+  "bootstrap_replicates": 5000,
+  "T_strict_eyes": 401,
+  "AC_strict_eyes": 157,
+  "AC_strict_people": 139,
+  "figures_verified": {
+    "files": 4,
+    "formats": [
+      "PNG",
+      "SVG"
+    ],
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.11.0"
+  },
+  "validation_execution": "Analysis stages executed sequentially with the original analysis environment. Figure stage initially lacked Matplotlib and was rerun successfully using the existing bundled plotting environment. Extension independent audit was executed separately after adding its portable wrapper. Full output digests were checked after these stages."
+}

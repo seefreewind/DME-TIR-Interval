@@ -13,6 +13,7 @@ def main():
  a=p.parse_args()
  if a.synthetic_only:
   run(R,'phase0/scripts/test_synthetic.py');run(R,'phase0/scripts/test_normalized_cli.py');return
+ import numpy,matplotlib  # Fail before a long real-data run if setup is incomplete.
  if a.out is None:p.error('--out is required for real-data reproduction')
  out=a.out.resolve()
  if not out.is_relative_to(R) or out==R:p.error('--out must be a new directory inside this checkout')
