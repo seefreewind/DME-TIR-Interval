@@ -1,0 +1,17 @@
+trial	variable	table	columns	join_key	baseline_visit	analysis_unit	measurement_unit	rule	dictionary
+T	age	PtRoster	AgeAsOfEnrollDt	PtID	Baseline	participant	years	Numeric exact age only; censored strings missing	TReadMe.txt
+T	sex	THxBaseline	Gender	PtID	Baseline	participant	category	M/F as reported	TReadMe.txt
+T	diabetes_type	THxBaseline	DiabetesType	PtID	Baseline	participant	category	Type 1/Type 2/Uncertain as reported	TReadMe.txt
+T	diabetes_duration_approx	THxBaseline	DiabAge + PtRoster.AgeAsOfEnrollDt	PtID	Baseline	participant	years	Age minus age at diagnosis; numeric and 0<=diagnosis<=age; no substitution for censored ages	TReadMe.txt
+T	HbA1c	TLab	HgbA1c; HbA1cLabVal	PtID	Baseline	participant	percent	Central numeric result unless HgbA1cNA checked; otherwise local 4..19 unless HbA1cNotDone checked; source retained	TReadMe.txt
+T	baseline_VA	phase1/normalized/eyes.tsv	baseline_va	PtID	Baseline	eye	E-ETDRS letters	Frozen valid baseline unchanged	TReadMe.txt
+T	prior_DME_treatment	THxBaseline	DMETrtHxOD / DMETrtHxOS	PtID + study eye suffix	Baseline	eye	Yes/No	Use exact eye-specific Yes/No; other missing	TReadMe.txt
+T	CST	RCOCTGradingResult	OCTCentSubCalc; OCTCentSubCalcStatus; OCTMachine	PtID + OCTScanEye	Baseline	eye	micrometers native by device	Baseline visit only; positive <=2000 and not Ungradable; use only one unique (machine,value) pair across all gradable records; discordant duplicate pairs missing; no cross-device conversion or pooling	TReadMe.txt
+AC	age	PtRoster	AgeAsofEnrollDt	PtID	Randomization	participant	years	Numeric exact age only; censored strings missing	DataGlossary.txt
+AC	sex	ACBaselineOcuMedHx	Sex	PtID	Randomization	participant	category	M/F as reported	DataGlossary.txt
+AC	diabetes_type	ACBaselineOcuMedHx	DiabetesType	PtID	Randomization	participant	category	Type 1/Type 2/Uncertain as reported	DataGlossary.txt
+AC	diabetes_duration_approx	ACBaselineOcuMedHx	DiabAge + PtRoster.AgeAsofEnrollDt	PtID	Randomization	participant	years	Age minus age at diagnosis; numeric and 0<=diagnosis<=age; no substitution for censored ages	DataGlossary.txt
+AC	HbA1c	ACLab	HgbA1c; HbA1cLabVal	PtID	Randomization	participant	percent	Central numeric result unless HgbA1cNA checked; otherwise local 4..19 unless HbA1cNotDone checked; source retained	DataGlossary.txt
+AC	baseline_VA	phase1/normalized/eyes.tsv	baseline_va	PtID	Randomization	eye	E-ETDRS letters	Frozen valid baseline unchanged	DataGlossary.txt
+AC	prior_DME_treatment	ACBaselineOcuMedHx	DMETrtHxOD / DMETrtHxOS	PtID + study eye suffix	Randomization	eye	Yes/No	Use exact eye-specific Yes/No; other missing	DataGlossary.txt
+AC	CST	RCOCTGradingResult	OCTCentSubCalc; OCTCentSubCalcStatus; OCTMachine	PtID + OCTScanEye	Randomization	eye	micrometers native by device	Baseline visit only; positive <=2000 and not Ungradable; use only one unique (machine,value) pair across all gradable records; discordant duplicate pairs missing; no cross-device conversion or pooling	DataGlossary.txt

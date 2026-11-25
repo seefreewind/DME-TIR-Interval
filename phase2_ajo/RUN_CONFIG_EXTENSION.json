@@ -1,0 +1,125 @@
+{
+  "project": "DME-TIR-Interval",
+  "created_before_new_results": "2026-11-24T19:35:12.782878+08:00",
+  "label": "POST_PHASE1_EXPLORATORY_EXTENSION",
+  "authorization": {
+    "PHASE2_AJO_EXTENSION_AUTHORIZATION": true,
+    "MANUSCRIPT_REVISION_AUTHORIZATION": true,
+    "NEW_COHORT_DOWNLOAD_AUTHORIZATION": false,
+    "PRIMARY_ESTIMAND_CHANGE_AUTHORIZATION": false,
+    "SUBMISSION_AUTHORIZATION": false
+  },
+  "historical_config_sha256": "35374b0ec80e588c12837ddd9350f5a6865c1f6f0e4269115e6892271fa5c667",
+  "population": {
+    "T_eyes_people": [
+      401,
+      401
+    ],
+    "AC_eyes_people": [
+      157,
+      139
+    ],
+    "T_primary_treatment_eyes": 274
+  },
+  "calendars": {
+    "4": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52
+    ],
+    "8": [
+      0,
+      8,
+      16,
+      24,
+      32,
+      40,
+      48,
+      52
+    ],
+    "12": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      52
+    ]
+  },
+  "time": "Actual days0–364; unchanged baseline[-8,0] anchor and shared annual extension<=7 days from357–363. No change to historical eligibility.",
+  "endpoints": {
+    "TIR_days": "Exact piecewise-linear integral I[VA>=69]; historical per-eye TIR and original CIs retained",
+    "TIR_fraction": "TIR_days/364",
+    "time_averaged_VA_change": "Exact trapezoid integral (VA(t)-baseline)/364, letters; clipped at364 with own retained values; same allowed annual tail",
+    "anniversary_VA_change": "Shared actual planned52-week letters minus shared baseline; design/engineering negative control only"
+  },
+  "stats": [
+    "reference_mean",
+    "reference_sd",
+    "sparse_mean",
+    "sparse_sd",
+    "mean_signed",
+    "mean_abs",
+    "median_abs",
+    "p90_abs",
+    "standardized_discrepancy",
+    "treatment_contrasts",
+    "paired_contrast_change"
+  ],
+  "standardization": "Sample SD(ddof=1) of each endpoint own four-week reference in full strict trial population, including all401 T eyes; bootstrap recalculates numerator and same reference SD jointly. Paired difference standardized TIR minus standardized AUC. Treatment-standardized change uses same full strict trial reference SD; T model still274eyes. SD0 => non-estimable.",
+  "bootstrap": {
+    "B": 5000,
+    "seed": 20261124,
+    "method": "Phase1 Boot generator, original ordered population SHA256-derived PCG64. T stratified original arm; AC whole-trial participant clusters. Full-trial weights shared across endpoints/calendars/thresholds, T two-arm model uses matching weights subset. Historical Phase1 T two-arm model original CI remains authoritative; new jointly standardized model changes use full-trial replicates and are separately labeled.",
+    "CI": "2.5th/97.5th percentile; linear quantiles; all5000 attempts retained with non-estimable count; small strata<20 people or<20eyes descriptive points only",
+    "sd": "Frequency-weight sample SD denominator total replicated eyes minus1",
+    "failure_policy": "No silently redrawing singular replicates; report valid/failed; require5000 valid for full-population estimable analyses; sparse direction denominators may have NA replicates explicitly."
+  },
+  "thresholds": [
+    64,
+    69,
+    74,
+    79,
+    84
+  ],
+  "thresholds_identity": "69 original only; others Phase1-posthoc; all intervals descriptive, unadjusted; no P values",
+  "threshold_floor_ceiling": "Always above/below on reconstructed four-week curve0–364 using clipped boundary, not daily biological truth. Separate observed conversions use consecutive retained reference measurements with actual day<=364 (baseline anchored0); late annual support excluded from observed conversion count.",
+  "discrepancy_days": [
+    7,
+    14,
+    28,
+    42
+  ],
+  "baseline_strata": {
+    "below69": "baseline<69",
+    "atleast69": "baseline>=69"
+  },
+  "small_stratum": "<20eyes or<20participants: counts and descriptive values, no CI; no data-driven splitting/merging",
+  "trajectory_classes": [
+    "all_reference_knots_attain",
+    "all_reference_knots_below",
+    "1_observed_conversion",
+    "2_observed_conversions",
+    "3plus_observed_conversions",
+    "boundary_only_change_or_no_observed_conversion"
+  ],
+  "trajectory": "Observed conversions at69 on actual reference dates<=364; down/up/total counted separately. All-knots classification uses clipped0–364 support. Explanatory after Phase1, not baseline prediction.",
+  "holdout": "Frozen phase1 holdout_points_strict.tsv unchanged; pool points and also eye-equal summaries. Continuous predicted-observed mean, MAE,P90,abs>=5/10letters; resample participant clusters, numerator point weights repeated from eye weight. Threshold agreement same hidden points per calendar. Original binary point/interval denominators retained.",
+  "baseline_selection": "Participant variables summarized unique people; included/excluded eye cohorts use unique participants and may overlap if only one eye qualifies (report overlap). Eye variables summarized eyes. No imputation. Continuous SMD(included-excluded)/sqrt((sdI²+sdE²)/2); binary SMD(pI-pE)/sqrt((pI(1-pI)+pE(1-pE))/2); categories one-vs-rest; missingness explicitly counted. Original/included/excluded groups. Source mapping after dictionary review before calculation; unreliable fields unavailable. No baseline P values.",
+  "OCT": "Use only dictionary/protocol-defined baseline CST and native device/reading-center scale; report device-specific strata if no validated common transformation is explicitly documented. Never pool unconverted device thickness.",
+  "example_selection": "Within each trial choose strict eye with maximum observed69-state conversion count, then largest absolute D8 from frozen phase1, then ascending numeric participant id and eye. Purpose deliberately fluctuant illustration, not typical. Pseudonym ExampleT/ExampleAC; key retained in restricted local audit only.",
+  "optional_calendar_extension": "Not undertaken; limited scope prioritizes endpoints and clinical explanations. Existing prespecified phase sensitivity retained with point-count/edge-gap confounding disclosed. No calendar optimization.",
+  "manuscript": "AJO Original Article; authors/IRB/funding/COI/publication rights pending; Methods accurate actual Codex code use and verification; separate declaration draft no claim human review complete",
+  "stopping_point": "Author review, no submission or public upload"
+}

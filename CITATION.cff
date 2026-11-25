@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the archived version of this software."
+title: "DME-TIR-Interval: reproducible assessment-schedule sensitivity analysis"
+type: software
+authors:
+  - name: DME-TIR-Interval
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/seefreewind/DME-TIR-Interval"

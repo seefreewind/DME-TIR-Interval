@@ -1,0 +1,23 @@
+trial	concept	raw_table	raw_columns	join_key	time_unit	rule	dictionary	normalized_time_unit
+T	participant_id	PtRoster.txt	PtID	PtID	not_applicable	试验内受试者唯一ID	TReadMe.docx	not_applicable
+T	eye	TRandomization.txt	RandEye	PtID	not_applicable	与PtRoster.StudyEye逐人一致；OU展开两眼	TReadMe.docx	not_applicable
+T	random_group	TTrtGroupUnmasked.txt	TTrtGroup	PtID+eye	not_applicable	保留随机分组，禁止使用当前药物/换药重分类	TReadMe.docx	not_applicable
+T	planned_visit	TVAReVATest.txt	Visit	PtID+ParentLoginVisitID	not_applicable	Baseline/Randomization→0；4 week…52 week；不按行号	TReadMe.docx	not_applicable
+T	letters	TVAReVATest.txt	EtdrsOD/EtdrsOS	PtID+ParentLoginVisitID+eye	not_applicable	按研究眼选择0–100数值	TReadMe.docx	not_applicable
+T	method	TVAReVATest.txt	VAMethodOD/VAMethodOS;VACompleted	PtID+ParentLoginVisitID+eye	not_applicable	仅EVA-ETDRS且该眼已完成；ETDRS Chart不混入主计数	TReadMe.docx	not_applicable
+T	exam_time	TVAReVATest.txt	VAExamDtDaysFromEnroll	PtID+ParentLoginVisitID	days_from_enrollment	actual detection day, not visit/injection day	TReadMe.docx	days_from_randomization
+T	randomization_origin	TVisitInfo.txt	VisitDtDaysFromEnroll	PtID+randomization.ParentLoginVisitID	days_from_enrollment	T随机化表链接基线VisitInfo=0；AC减随机化日历日期	TReadMe.docx	days_from_randomization
+T	missing	TVisitInfo.txt	VisitMiss/VisitMissReason	PtID+ParentLoginVisitID	not_applicable	原始缺访单独保留；不转为人为隐藏	TReadMe.docx	not_applicable
+T	duplicate	TVAReVATest.txt	RecID;ParentLoginVisitID	PtID+Visit+eye	not_applicable	计划周重复检查；实测ID唯一	TReadMe.docx	not_applicable
+T	baseline	TVAReVATest.txt	Visit;EtdrsOD/EtdrsOS;VAExamDtDaysFromEnroll	PtID+eye	days_from_enrollment	协议允许随机化前8天基线；原始负日保留，日0锚点显式记录	TReadMe.docx	days_from_randomization
+AC	participant_id	PtRoster.txt	PtID	PtID	not_applicable	试验内受试者唯一ID	DataGlossary.rtf	not_applicable
+AC	eye	ACRandomization.txt	ACRandEye	PtID	not_applicable	与PtRoster.StudyEye逐人一致；OU展开两眼	DataGlossary.rtf	not_applicable
+AC	random_group	PtRoster.txt	TrtGroupOD/TrtGroupOS	PtID+eye	not_applicable	保留随机分组，禁止使用当前药物/换药重分类	DataGlossary.rtf	not_applicable
+AC	planned_visit	ACVAReVATest.txt	Visit	PtID+ParentLoginVisitID	not_applicable	Baseline/Randomization→0；4 week…52 week；不按行号	DataGlossary.rtf	not_applicable
+AC	letters	ACVAReVATest.txt	EtdrsOD/EtdrsOS	PtID+ParentLoginVisitID+eye	not_applicable	按研究眼选择0–100数值	DataGlossary.rtf	not_applicable
+AC	method	ACVAReVATest.txt	VAMethodOD/VAMethodOS;VACompleted	PtID+ParentLoginVisitID+eye	not_applicable	仅EVA-ETDRS且该眼已完成；ETDRS Chart不混入主计数	DataGlossary.rtf	not_applicable
+AC	exam_time	ACVAReVATest.txt	VAExamDt	PtID+ParentLoginVisitID	deidentified_calendar_date_or_datetime	actual detection day, not visit/injection day	DataGlossary.rtf	days_from_randomization
+AC	randomization_origin	PtRoster.txt	RandDt	PtID	deidentified_calendar_date_or_datetime	T随机化表链接基线VisitInfo=0；AC减随机化日历日期	DataGlossary.rtf	days_from_randomization
+AC	missing	ACVisitInfo.txt	VisitMiss/VisitMissReason	PtID+ParentLoginVisitID	not_applicable	原始缺访单独保留；不转为人为隐藏	DataGlossary.rtf	not_applicable
+AC	duplicate	ACVAReVATest.txt	RecID;ParentLoginVisitID	PtID+Visit+eye	not_applicable	计划周重复检查；实测ID唯一	DataGlossary.rtf	not_applicable
+AC	baseline	ACVAReVATest.txt	Visit;EtdrsOD/EtdrsOS;VAExamDt	PtID+eye	deidentified_calendar_date_or_datetime	协议允许随机化前8天基线；原始负日保留，日0锚点显式记录	DataGlossary.rtf	days_from_randomization

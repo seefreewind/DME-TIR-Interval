@@ -1,0 +1,22 @@
+{
+  "phase1/normalized/eyes.tsv": "4c83abf9d05dcbd81dc663f166d4979932cf3ff8054253d1b1878f8c2e95d70a",
+  "phase1/normalized/field_mapping_real.tsv": "5355bca5f4daa4fe2f0048158a8cef6ae928d48df092b795d9d108e4401631d4",
+  "phase1/normalized/mapping_evidence.json": "e0034701013a0c1d0b86ef4eec13bd9aa3e1547bed0cdf02366b7259fa57aad7",
+  "phase1/normalized/raw_table_schema.tsv": "2522294938f70844930cb47db1d6f60442141c062e04b8110a9a0f1198787c81",
+  "phase1/normalized/record_validity.tsv": "d09dc40a483d29ddce4641f4a562b38600102041c85abef8ef478467af06350b",
+  "phase1/normalized/visits.tsv": "6e17294683b4364a343ae9136f50e74a90f2cfe3281b2fc87f59ea9d95c714f1",
+  "phase1/audit/exclusions.tsv": "bdf2014df4d230afdb55b0b68e48749e95a66ff23f70279e2fffcd17f433f26e",
+  "phase1/audit/eye_eligibility.tsv": "c46404fdea9cd17a8f5025d12dc90e95372cf05b1196832b3e5a66e1de063fdc",
+  "phase1/audit/max_gaps.tsv": "1ed51aaf94ee48bd3ab0f56196d535297ecf5b07bdf83592d361e53538998f54",
+  "phase1/audit/paired_flow.tsv": "dfe62b1e1c310cd7667c2d4ef83eb163619307624001de82903f46edc9ec0d85",
+  "phase1/audit/tolerance_grid.tsv": "644c27af944ef7a274c4c66c6b22fadcd0a71533864204708919127e75305ab7",
+  "phase1/eligibility/baseline_and_wide_sensitivity.tsv": "44b47f53046ef4f87b79d7d5de69d216eaaa6d863f4ae7c9f9fce5a760867e65",
+  "phase1/eligibility/boundary_counts.tsv": "873113aafb3afff83713c90f52b942e3bdbb5bb3b44d3cd98d859166b08a61ed",
+  "phase1/eligibility/calendar_masks.tsv": "31988b253b436013014e6cfb27e7f258508834084a093cd35d6b56bcc2bbe0e2",
+  "phase1/eligibility/eye_eligibility_real.tsv": "0517a9c8f294fb37df5e40ff736e403ee8408388049a92fd93beed97356b23e8",
+  "phase1/eligibility/holdout_inventory.tsv": "5f9ad616debdd21f3e20dbb97aab5fd84e7b4c678dc3aaeea54c1eae49a81e6e",
+  "phase1/eligibility/max_gap_distribution.tsv": "efb14834642b6387e8b9aef2b966bccd8e896e2315a71ba3ad999f31fb02b5d2",
+  "phase1/eligibility/paired_flow_real.tsv": "ddbf916e501df3f9eb055313dbf54c2eacc83fef9b80bd6a9a7b399e7a3c0f83",
+  "phase1/eligibility/rule_losses.tsv": "a244e3f1a440c4d45d2384a10378863f4f01a4858d25aa59186091d5c8c9b78e",
+  "phase1/eligibility/rule_pass_flags.tsv": "f24611636557ae259c6519dbdf2bd04e0faf996146269eb365b5078233f30bdf"
+}

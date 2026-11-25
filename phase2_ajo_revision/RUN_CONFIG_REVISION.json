@@ -1,0 +1,84 @@
+{
+  "created_before_new_results": "2026-11-24T20:25:28.731421+08:00",
+  "identity": "POST_HOC_AJO_V2_EXTENSION",
+  "authorization": {
+    "limited_additional_analysis": true,
+    "manuscript_revision": true,
+    "new_cohort": false,
+    "primary_estimand_change": false,
+    "submission": false
+  },
+  "population": {
+    "T_eyes": 401,
+    "T_people": 401,
+    "AC_eyes": 157,
+    "AC_people": 139,
+    "T_treatment_model": 274
+  },
+  "unchanged": "Original >=69 linear TIR actual days0–364; same historical baseline/annual rules and calendars. All original results authoritative.",
+  "selection": {
+    "target": "All original randomized study eyes separately by trial: T660; AC312 eyes/270 people. Outcome eye-specific strict qualification. Equal-eye estimand, clusters resampled as participants.",
+    "covariates": [
+      "age",
+      "sex",
+      "original randomized group",
+      "baseline_VA",
+      "diabetes_type",
+      "diabetes_duration_approx",
+      "HbA1c",
+      "prior_DME_treatment",
+      "AC original bilateral enrollment"
+    ],
+    "model": "Logistic main effects; continuous age/10, baselineVA/10, duration/10, HbA1c; centered at bootstrap weighted median for numerical scaling. Fixed ridge1e-6 on slopes, unpenalized intercept, no variable selection/interactions/outcome-dependent tuning. Newton max100 iterations tol1e-9; convergence tested by score and step. Record any failure.",
+    "missing": "Numeric nonfinite: median imputation among unique original participants for person variables, eyes for baselineVA, recomputed per bootstrap, plus fixed missing indicators. Categorical missing/unknown retained explicitly. Fixed factor coding from original baseline roster before modeling; no missing outcome recovery. Missingness itself remains a selection limitation.",
+    "weights": "Stabilized q/p; q=strict selected sampled eyes/all sampled eyes. At point fit truncate selected weights to 1st/99th empirical linear percentiles; each bootstrap recomputes q,p,cutoffs and normalizes weights. Untruncated sensitivity reported alongside. Weighted mean normalized by actual selected weighted eye sum.",
+    "diagnostics": "Probability quantiles all and selected. Raw and truncated weights quantiles/min/max. ESS=(sum w)^2/sum(w^2). Balance versus all original eyes using fixed original-eye SD for continuous and sqrt(p(1-p)) for indicator columns. Assess all model terms including missingness; intercept omitted.",
+    "qualification": "QUALIFIED only if point fit converges; all original-eye p>=0.05; raw selected max/median<=10; truncated ESS>=0.50*selected eyes; weighted max abs SMD<=0.10; weighted mean abs SMD improves (tolerance1e-8); all5000 bootstrap fits/estimates finite. Otherwise NOT_QUALIFIED; report values as diagnostics only, no population recovery claim.",
+    "CST": "Not modeled: device-specific scales and ambiguous/missing assignments already identified; no optional model shopping."
+  },
+  "common_support": {
+    "protocol_T": [
+      24,
+      78
+    ],
+    "protocol_AC": [
+      24,
+      68
+    ],
+    "range_inclusive": [
+      24,
+      68
+    ],
+    "evidence": "Local prior MinerU protocol Markdown; verify exact criterion against original protocols. Fixed protocol intersection, not empirical min/max outcome-driven trimming.",
+    "bins_inclusive": [
+      [
+        24,
+        53
+      ],
+      [
+        54,
+        68
+      ]
+    ],
+    "direct_standardization": "Conditional on >=20 eyes and >=20 participants per trial per frozen bin. Target weights=0.5*(T proportion + AC proportion) within common-range strict eyes. Bootstrap re-estimates within-bin summaries and pooled proportions; all endpoints/calendars shared same participants. Report each-trial standardized MAE and signed difference and AC-minus-T discrepancy. If insufficient do not merge bins; NOT_QUALIFIED.",
+    "summaries": [
+      "mean_abs",
+      "mean_signed",
+      "p90_abs",
+      "abs_ge14",
+      "abs_ge28",
+      "baseline VA min/q25/median/q75/max/mean/SD"
+    ]
+  },
+  "bootstrap": {
+    "B": 5000,
+    "seed": 20261124,
+    "structure": "Historical phase1 Boot: T stratified original randomized arm; AC whole-trial participants. Selection analysis draws ORIGINAL roster; all original fellow eyes and qualifications included with multiplicity. Common support draws original strict populations then conditions on fixed masks. Independent trial streams; same replicate pairs calendars/within-trial endpoints.",
+    "CI": "Percentile2.5/97.5 linear; do not redraw failed fits. Log all5000 replicate validity. Weighted-minus-unweighted change uses SAME sampled selected eyes and same bootstrap replicate."
+  },
+  "examples": {
+    "high": "Retain v1 maximum observed >=69 conversion count, then max absD8, then numeric participantID/eye.",
+    "central": "For each trial minimize absolute distance of absD8 to trial median absD8; then distance of absD12 to trial median absD12; then ascending numeric participantID/eye. All from frozen strict eyes; illustrative not representative. No visible source ID."
+  },
+  "stopping": "Author review; no further study or submission"
+}

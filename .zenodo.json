@@ -1,0 +1,23 @@
+{
+  "title": "DME-TIR-Interval: reproducible assessment-schedule sensitivity analysis",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "DME-TIR-Interval"
+    }
+  ],
+  "description": "Analysis code, frozen configurations and synthetic tests for within-eye assessment-schedule sensitivity of first-year visual-acuity time in range in DRCR Protocol T and AC. No participant-level datasets are redistributed. Original data must be obtained separately from the official DRCR public data portal. Includes participant-cluster bootstrap, holdout validation, prespecified sensitivity analyses and separately labeled post hoc clinical extensions.",
+  "access_right": "open",
+  "license": "mit",
+  "version": "1.0.0",
+  "language": "eng",
+  "keywords": [
+    "diabetic macular edema",
+    "visual acuity",
+    "assessment schedule",
+    "time in range",
+    "reproducible research",
+    "DRCR Protocol T",
+    "DRCR Protocol AC"
+  ]
+}

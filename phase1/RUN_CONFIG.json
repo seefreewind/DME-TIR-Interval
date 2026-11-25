@@ -1,0 +1,116 @@
+{
+  "project": "DME-TIR-Interval",
+  "created_before_first_real_TIR": "2026-11-24T17:01:54.265119+08:00",
+  "PHASE1_AUTHORIZATION": true,
+  "MANUSCRIPT_AUTHORIZATION": false,
+  "input_versions": [
+    "phase0/ANALYSIS_RULES_FROZEN.md",
+    "phase0_real_2026-11-24/PROTOCOL_ADDENDUM_2026-11-24.md",
+    "phase0_real_2026-11-24/BASELINE_IMPLEMENTATION_NOTE_2026-11-24.md",
+    "phase0_real_2026-11-24/normalized_v2",
+    "phase0_real_2026-11-24/audit_v2",
+    "phase0_real_2026-11-24/results_final"
+  ],
+  "input_verification": "Fresh extraction of both SHA256-verified archives; all non-resource members byte-matched to ZIP; regenerate normalized, eligibility, calendar masks and compare bytewise to frozen versions",
+  "strict_samples": {
+    "T_eyes": 401,
+    "T_groups": [
+      141,
+      133,
+      127
+    ],
+    "T_treatment_comparison_eyes": 274,
+    "AC_eyes": 157,
+    "AC_people": 139,
+    "AC_groups": [
+      81,
+      76
+    ]
+  },
+  "wide_samples": {
+    "T8": 465,
+    "T12": 486,
+    "T_common": 439,
+    "AC8": 187,
+    "AC12": 203,
+    "AC_common": 175
+  },
+  "calendar4": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52
+  ],
+  "calendar8": [
+    0,
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    52
+  ],
+  "calendar12": [
+    0,
+    12,
+    24,
+    36,
+    48,
+    52
+  ],
+  "main_algorithm": "Exact integration of unrounded piecewise-linear letters >=69 on actual examination days, divide days by 7 for weeks",
+  "boundary": "0-364 days; protocol baseline [-8,0] anchored to 0; common actual 48/52 bracketing 364 or constant tail from annual357-363 through364 at most7days",
+  "bootstrap": {
+    "replicates": 5000,
+    "seed": 20261124,
+    "generator": "numpy.random.default_rng / PCG64",
+    "T": "participant sampling stratified by original randomized arm",
+    "AC": "whole-trial participant sampling, all eligible eyes with original arm and all calendars together; multiplicity weights",
+    "CI": "percentile 2.5%,97.5%; no BCa; failure count and usable proportion reported",
+    "population_seed": "SeedSequence([20261124, int(SHA256(ordered trial:participant:eye:group population)[:8],16)]); stable independent streams per fixed population, shared across outcomes/calendars"
+  },
+  "quantile": "numpy linear / h=(n-1)p, including p90 and percentile endpoints",
+  "T_model": "OLS eye equal weights; treatment plus continuous baseline VA, primary contrast Aflibercept minus Bevacizumab on same274eyes; refit each bootstrap; difference of coefficients directly",
+  "AC_model": "OLS eye equal weights; original strategy plus continuous baseline VA plus original bilateral enrollment flag; AC-A minus AC-B; participant bootstrap",
+  "clarification_from_frozen": "Current explicit user instruction restricts T primary treatment comparison to274eyes, superseding older three-arm401eye ANCOVA. Retain older three-arm model as labeled supplemental result. Main mean absolute D8 still all401eyes. No population or boundary changes.",
+  "holdout": {
+    "strict8_T": 2406,
+    "strict8_AC": 942,
+    "strict12_T": 3208,
+    "strict12_AC": 1256,
+    "missed_dip": "actual<69 AND predicted>=69 / actual<69 held-out points",
+    "missed_attainment": "actual>=69 AND predicted<69 / actual>=69 held-out points",
+    "overall_point_rate": "all mismatches/all held-out points",
+    "eye_equal": "mean of each eye own ratio; direction-specific denominator excludes eyes with zero corresponding actual class; all-eye overall ratio also reported",
+    "prediction": "only two surrounding retained values, interpolate at hidden actual day",
+    "interval": "both retained endpoints>=69 and >=1 hidden actual<69, once per retained interval; denominator both-endpoint-attaining intervals with hidden measurements"
+  },
+  "sensitivities": [
+    "LOCF only",
+    "strict >69 only",
+    "fixed actual day336",
+    "nominal equidistant week0-48",
+    "8-week internal phases0/4;12-week phases0/4/8; common eligible eyes",
+    "actual-day0 baseline only",
+    "no annual carry",
+    "exclude max actual gap>63days",
+    "AC annual308-420 window",
+    "union of AC gap and447day annual exclusions, no duplicate counting",
+    "wide8/wide12",
+    "paired wide-common8vs12",
+    "historical T three-arm adjustment"
+  ],
+  "numerical_tolerance_days": 1e-08,
+  "stopping_point": "Results review only; no manuscript drafting"
+}
